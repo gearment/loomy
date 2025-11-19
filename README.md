@@ -3,7 +3,7 @@
 
   # Loomy - Modern Go Worker Pool
 
-  [![Go Version](https://img.shields.io/badge/Go-%3E%3D1.19-00ADD8?logo=go)](https://go.dev/)
+  [![Go Version](https://img.shields.io/badge/Go-%3E%3D1.25-00ADD8?logo=go)](https://go.dev/)
   [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 </div>
@@ -31,7 +31,7 @@ A fixed goroutine pool is helpful when you have work coming from an arbitrary nu
 go get github.com/gearment/loomy
 ```
 
-Requires Go 1.19+ (uses `atomic.Int64` and generics)
+Requires Go 1.25+ (uses `atomic.Int64` and generics)
 
 ## Quick Start
 
