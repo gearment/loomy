@@ -84,6 +84,7 @@ type Worker[In, Out any] interface {
 }
 
 // WorkerAny is a backward-compatible alias for Worker using interface{} types.
+//
 // Deprecated: Use Worker[In, Out] with specific types instead.
 type WorkerAny = Worker[interface{}, interface{}]
 
@@ -162,6 +163,7 @@ type Pool[In, Out any] struct {
 }
 
 // PoolAny is a backward-compatible alias for Pool using interface{} types.
+//
 // Deprecated: Use Pool[In, Out] with specific types instead.
 type PoolAny = Pool[interface{}, interface{}]
 
