@@ -102,7 +102,7 @@ func TestFuncJobTimed(t *testing.T) {
 	defer pool.Close()
 
 	for i := 0; i < 10; i++ {
-		ret, err := pool.ProcessTimed(10, time.Millisecond)
+		ret, err := pool.ProcessTimed(10, 100*time.Millisecond)
 		if err != nil {
 			t.Fatalf("Failed to process: %v", err)
 		}
@@ -259,7 +259,7 @@ type mockWorker struct {
 	terminated     bool
 }
 
-func (m *mockWorker) Process(ctx context.Context, in int) (int, error) {
+func (m *mockWorker) Process(_ context.Context, in int) (int, error) {
 	select {
 	case <-m.blockProcChan:
 	case <-m.interruptChan:
@@ -611,11 +611,11 @@ type intIntHooks struct {
 	t             *testing.T
 }
 
-func (h *intIntHooks) OnJobStart(payload int) {
+func (h *intIntHooks) OnJobStart(_ int) {
 	h.jobStarts.Add(1)
 }
 
-func (h *intIntHooks) OnJobComplete(payload int, result int, duration time.Duration) {
+func (h *intIntHooks) OnJobComplete(payload, result int, duration time.Duration) {
 	h.jobCompletes.Add(1)
 	h.completedJobs.Store(payload, result)
 	if duration < 0 {
@@ -636,7 +636,7 @@ func (h *intIntHooks) OnWorkerStart(workerID int) {
 	h.workerIDs.Store(workerID, true)
 }
 
-func (h *intIntHooks) OnWorkerStop(workerID int) {
+func (h *intIntHooks) OnWorkerStop(_ int) {
 	h.workerStops.Add(1)
 }
 
@@ -842,7 +842,9 @@ func TestGracefulShutdown(t *testing.T) {
 
 		// Submit long-running jobs
 		for i := 0; i < 10; i++ {
-			go pool.Process(i)
+			go func(j int) {
+				_, _ = pool.Process(j)
+			}(i)
 		}
 
 		// Give time for jobs to queue

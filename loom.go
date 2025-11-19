@@ -110,7 +110,7 @@ func (w *closureWorker[In, Out]) Terminate()       {}
 // ErrJobNotFunc.
 type callbackWorker struct{}
 
-func (w *callbackWorker) Process(ctx context.Context, payload interface{}) (interface{}, error) {
+func (w *callbackWorker) Process(_ context.Context, payload interface{}) (interface{}, error) {
 	f, ok := payload.(func())
 	if !ok {
 		return nil, ErrJobNotFunc
@@ -157,7 +157,7 @@ type Pool[In, Out any] struct {
 	reqChan chan workRequest[In, Out]
 	hooks   Hooks[In, Out]
 
-	workerMut   sync.Mutex
+	workerMut    sync.Mutex
 	nextWorkerID atomic.Int64
 }
 

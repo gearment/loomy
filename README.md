@@ -4,6 +4,10 @@
   # Loomy - Modern Go Worker Pool
 
   [![Go Version](https://img.shields.io/badge/Go-%3E%3D1.25-00ADD8?logo=go)](https://go.dev/)
+  [![Test](https://github.com/gearment/loomy/workflows/Test/badge.svg)](https://github.com/gearment/loomy/actions)
+  [![Go Report Card](https://goreportcard.com/badge/github.com/gearment/loomy)](https://goreportcard.com/report/github.com/gearment/loomy)
+  [![codecov](https://codecov.io/gh/gearment/loomy/branch/master/graph/badge.svg)](https://codecov.io/gh/gearment/loomy)
+  [![GoDoc](https://pkg.go.dev/badge/github.com/gearment/loomy)](https://pkg.go.dev/github.com/gearment/loomy)
   [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 </div>
