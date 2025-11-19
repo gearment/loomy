@@ -14,16 +14,16 @@ A fixed goroutine pool is helpful when you have work coming from an arbitrary nu
 
 ## Features
 
-✅ **Type-Safe Generics** - Full generic support with compile-time type safety
-✅ **Panic Recovery** - Automatic panic recovery prevents pool crashes
-✅ **Hooks System** - Monitor worker lifecycle and job events
-✅ **Graceful Shutdown** - Wait for queued jobs before termination
-✅ **Batch Processing** - Process multiple jobs concurrently with `ProcessBatch`
-✅ **Async Processing** - Non-blocking job submission with `ProcessAsync`
-✅ **Context Support** - First-class context.Context integration
-✅ **Error Handling** - Idiomatic error returns instead of panics
-✅ **Zero Dependencies** - Pure Go standard library
-✅ **Production Ready** - 95%+ test coverage
+- ✅ **Type-Safe Generics** - Full generic support with compile-time type safety
+- ✅ **Panic Recovery** - Automatic panic recovery prevents pool crashes
+- ✅ **Hooks System** - Monitor worker lifecycle and job events
+- ✅ **Graceful Shutdown** - Wait for queued jobs before termination
+- ✅ **Batch Processing** - Process multiple jobs concurrently with `ProcessBatch`
+- ✅ **Async Processing** - Non-blocking job submission with `ProcessAsync`
+- ✅ **Context Support** - First-class context.Context integration
+- ✅ **Error Handling** - Idiomatic error returns instead of panics
+- ✅ **Zero Dependencies** - Pure Go standard library
+- ✅ **Production Ready** - 95%+ test coverage
 
 ## Install
 
